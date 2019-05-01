@@ -1,0 +1,17 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.nav-link {
+    display: block;
+    padding: 0rem 0rem;
+}
+a:visited {    /* visited link */
+    color: #00FF00;
+}
+a:hover {    /* mouse over link */
+    color: #FF00FF;
+    text-decoration: underline;
+}
+a:active {    /* active link */
+    color: #0000FF;
+}

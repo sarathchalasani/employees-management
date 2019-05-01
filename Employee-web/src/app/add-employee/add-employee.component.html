@@ -1,0 +1,56 @@
+<div class="col-md-6">
+  <h2 >Add Employee</h2>
+  <form [formGroup]="empForm" (ngSubmit)="createEmployee()" novalidate>
+      <div class="form-group row" style="flex-direction: row;">
+        <div class="column required label:after">
+          <label  for="empId">Employee Id :
+            <span class="asterisk_input">  </span>
+          </label>
+          <input formControlName="empId"  [class.invalid]="isInvalidAndDirty('empId')" placeholder="Employee Id" name="Employee Id"  id="employeeid" >
+        </div>
+          <div class="alert alert-danger column" *ngIf="hasError('empId', 'required')">
+            Employee Id is required
+          </div>
+      </div>
+    <div class="form-group row" style="flex-direction: row;">
+      <div class="column">
+      <label for="name">Name :
+          <span class="asterisk_input">  </span>
+      </label>
+      <input type="name" formControlName="name"  placeholder="Name" name="name"  id="name">
+      </div>
+      <div class="alert alert-danger column" *ngIf="hasError('name', 'required')">
+        Name is required
+      </div>
+    </div>
+  
+    <div class="form-group row" style="flex-direction: row;">
+      <div class="column">
+      <label for="designation">Designation :
+          <span class="asterisk_input">  </span>
+      </label>
+      <input  formControlName="designation"  placeholder="Designation" name="designation"  id="designation">
+      </div>
+      <div class="alert alert-danger column" *ngIf="hasError('designation', 'required')">
+        Designation is required
+      </div>
+    </div>
+  
+    <div class="form-group row" style="flex-direction: row;">
+      <div class="column">
+        <label for="empSalary">Employee Salary :
+            <span class="asterisk_input">  </span>
+        </label>
+        <input formControlName="salary"  placeholder="Employee Salary" name="empSalary"  id="empSalary">
+      </div>
+      <div class="alert alert-danger column" *ngIf="hasError('salary', 'required')">
+        Employee Salary is required
+      </div>
+    </div>
+    <div class="form-group">
+        <label ></label>
+        <button type="submit" class="btn btn-success" [disabled]="!empForm.valid" >Create</button>
+    </div>
+    
+  </form>
+  </div>

@@ -1,0 +1,17 @@
+<header style="height:60px;background-color: #e40046">
+  
+  <nav class ="navbar navbar-expand-md navbar-dark " style="float: right; flex-direction: column;"> 
+      <ul class="navbar-nav" style="font-size: .8rem;line-height: 2;padding-right: 0rem">
+          <li *ngIf="loginService.isUserLoggedIn()" style="float: right; color: #fff;" >Welcome to {{loginService.getUser()}}  | </li>
+          <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
+      </ul>   
+  <ul class="navbar-nav" >
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Home</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/viewemployees" class="nav-link">View Employees</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add Employee</a></li>
+    
+  </ul>
+  
+  </nav>
+  
+  </header>

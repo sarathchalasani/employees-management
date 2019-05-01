@@ -1,0 +1,24 @@
+label {
+    width: 140px;
+  }
+  .asterisk_input:after {
+    content: " *";
+    color: #e32;
+    font-size: small;
+  }
+  .column {
+    float: left;
+  }
+  .row {
+    content: "";
+    display: table;
+    clear: both;
+    margin-left: 0px; 
+  }
+  .alert {
+    position: relative;
+    padding: .15rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}

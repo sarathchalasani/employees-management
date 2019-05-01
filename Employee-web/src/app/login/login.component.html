@@ -1,0 +1,20 @@
+<div class="containerl vertical-center-row">
+    <br>
+    <br>
+    <div class="form-group " style="font-size: 20px;">Login in to Employee Portal</div>
+    <br>
+    <div class="form-group ">
+        <label >Username : </label>
+        <input type="text" name="username" [(ngModel)]="username">
+  </div>
+  <div class="form-group ">
+      <label >Password : </label>
+       <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+        <button (click)=checkLogin() class="btn btn-success">
+            Login
+          </button>
+    </div>
+  
+</div>
