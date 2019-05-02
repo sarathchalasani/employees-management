@@ -1,10 +1,26 @@
-package com.model;
+package com.emp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Employee {
-	private String empId;
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private Long empId;
 	private String name;
 	private String designation;
 	private double salary;
+
+	public Employee(Long empId, String name, String designation, double salary) {
+		super();
+		this.empId = empId;
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+	}
 
 	public Employee() {
 	}
@@ -32,12 +48,12 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-
-	public String getEmpId() {
+	
+	public Long getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
 	}
 
