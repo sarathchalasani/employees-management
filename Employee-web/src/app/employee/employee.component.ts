@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClientService, Employee } from '../service/httpclient.service';
-
+import { MatTableDataSource,MatPaginator,MatSort } from '@angular/material';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -8,12 +8,15 @@ import { HttpClientService, Employee } from '../service/httpclient.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  employees:Employee[];
-    
-   
+  dataSource:MatTableDataSource<Employee>;
+  displayedColumns: string[] = ['empId', 'name', 'designation', 'salary','actions'];
+  index: number;
+  id: number;
   constructor(
     private httpClientService:HttpClientService
   ) { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
      this.httpClientService.getEmployees().subscribe(
@@ -23,15 +26,32 @@ export class EmployeeComponent implements OnInit {
 
 handleSuccessfulResponse(response)
 {
-    this.employees=response;
+    this.dataSource= new MatTableDataSource(response);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 }
 
+applyFilter(filterValue: string) {
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+
+
 deleteEmployee(employee: Employee): void {
-   this.httpClientService.deleteEmployee(employee)
-     .subscribe( data => {
-      this.employees = this.employees.filter(u => u !== employee);
-   })
+  this.httpClientService.deleteEmployee(employee)
+    .subscribe( data => {
+     this.ngOnInit();
+  })
 };
 
 
+private refreshTable() {
+  // Refreshing table using paginator
+  // Thanks yeager-j for tips
+  // https://github.com/marinantonio/angular-mat-table-crud/issues/12
+  this.paginator._changePageSize(this.paginator.pageSize);
+}
 }
