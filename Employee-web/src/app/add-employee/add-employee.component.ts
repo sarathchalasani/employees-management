@@ -15,7 +15,6 @@ export class AddEmployeeComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.empForm = formBuilder.group({
-      empId: ['', [Validators.required]],
       name: ['', [Validators.required]],
       designation: ['', [Validators.required]],
       salary: ['', [Validators.required]]
@@ -31,7 +30,8 @@ export class AddEmployeeComponent implements OnInit {
         .subscribe( data => {
           alert("Employee created successfully.");
         });
-
+    this.httpClientService.createEmployee(this.empForm.value)
+    this.empForm.reset();
   };
   isInvalidAndDirty(field: string) {
     const ctrl = this.empForm.get(field);
