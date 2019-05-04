@@ -34,7 +34,8 @@ public class EmployeeService {
     }
  
     public void addEmployee(Employee employee) {
-        log.info("Adding Employee " + employee);
+        log.info("Adding Employee " + employee.toString());
+        log.info("Adding Employee " + employee.getGender());
         employeeRepository.save(employee);
     }
  

@@ -1,5 +1,7 @@
 package com.emp.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,93 +12,82 @@ public class Employee {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long empId;
-	private String name;
-	private String designation;
-	private double salary;
+	private String fname;
+	private String lname;
+	private String department;
+	private Date dateofbirth;
+	private String gender;
 
-	public Employee(Long empId, String name, String designation, double salary) {
+	public Employee(Long empId, String fname,String lname, String designation, String department,Date date,String gender) {
 		super();
 		this.empId = empId;
-		this.name = name;
-		this.designation = designation;
-		this.salary = salary;
+		this.fname = fname;
+		this.lname = lname;
+		this.department = department;
+		this.dateofbirth=date;
+		this.gender=gender;
 	}
+
+	
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public Date getDateofbirth() {
+		return dateofbirth;
+	}
+
+
+	public void setDateofbirth(Date dateofbirth) {
+		this.dateofbirth = dateofbirth;
+	}
+
 
 	public Employee() {
 	}
 
-	public String getName() {
-		return name;
+	public String getDepartment() {
+		return department;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
-	public String getDesignation() {
-		return designation;
-	}
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
-	public double getSalary() {
-		return salary;
-	}
-
-	public void setSalary(double salary) {
-		this.salary = salary;
-	}
-	
 	public Long getEmpId() {
 		return empId;
 	}
 
+	public String getFname() {
+		return fname;
+	}
+
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+
+	public String getLname() {
+		return lname;
+	}
+
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+
 	public void setEmpId(Long empId) {
 		this.empId = empId;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((designation == null) ? 0 : designation.hashCode());
-		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(salary);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		if (designation == null) {
-			if (other.designation != null)
-				return false;
-		} else if (!designation.equals(other.designation))
-			return false;
-		if (empId == null) {
-			if (other.empId != null)
-				return false;
-		} else if (!empId.equals(other.empId))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (Double.doubleToLongBits(salary) != Double.doubleToLongBits(other.salary))
-			return false;
-		return true;
 	}
 
 }
