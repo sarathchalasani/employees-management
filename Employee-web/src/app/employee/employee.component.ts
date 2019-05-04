@@ -9,7 +9,7 @@ import { MatTableDataSource,MatPaginator,MatSort } from '@angular/material';
 export class EmployeeComponent implements OnInit {
 
   dataSource:MatTableDataSource<Employee>;
-  displayedColumns: string[] = ['empId', 'name', 'designation', 'salary','actions'];
+  displayedColumns: string[] = ['empId', 'fname', 'lname', 'department','dateofbirth','gender','actions'];
   index: number;
   id: number;
   constructor(

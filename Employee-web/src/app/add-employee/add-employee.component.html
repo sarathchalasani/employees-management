@@ -4,43 +4,71 @@
       
     <div class="form-group row" style="flex-direction: row;">
       <div class="column">
-      <label for="name">Name :
+      <label for="fname">First Name :
           <span class="asterisk_input">  </span>
       </label>
-      <input type="name" formControlName="name"  placeholder="Name" name="name"  id="name">
+      <input type="fname" formControlName="fname"  placeholder="First Name" name="fname"  id="fname">
       </div>
-      <div class="alert alert-danger column" *ngIf="hasError('name', 'required')">
-        Name is required
+      <div class="alert alert-danger column" *ngIf="hasError('fname', 'required')">
+        First Name is required
       </div>
     </div>
   
     <div class="form-group row" style="flex-direction: row;">
       <div class="column">
-      <label for="designation">Designation :
+      <label for="lname">Last Name :
           <span class="asterisk_input">  </span>
       </label>
-      <input  formControlName="designation"  placeholder="Designation" name="designation"  id="designation">
+      <input  formControlName="lname"  placeholder="Last Name" name="lname"  id="lname">
       </div>
-      <div class="alert alert-danger column" *ngIf="hasError('designation', 'required')">
-        Designation is required
+      <div class="alert alert-danger column" *ngIf="hasError('lname', 'required')">
+          Last Name is required
       </div>
     </div>
   
     <div class="form-group row" style="flex-direction: row;">
       <div class="column">
-        <label for="empSalary">Employee Salary :
+        <label for="department">Department :
             <span class="asterisk_input">  </span>
         </label>
-        <input formControlName="salary"  placeholder="Employee Salary" name="empSalary"  id="empSalary">
+        <input formControlName="department"  placeholder="Department" name="department"  id="department">
       </div>
-      <div class="alert alert-danger column" *ngIf="hasError('salary', 'required')">
-        Employee Salary is required
+      <div class="alert alert-danger column" *ngIf="hasError('department', 'required')">
+          Department is required
+      </div> 
+    </div>
+
+    <div class="form-group row" style="flex-direction: row;">
+      <div class="column">
+          <label for="dateofbirth">DateOfBirth :
+              <span class="asterisk_input">  </span>
+          </label>
+          <mat-form-field>
+            <input matInput [matDatepicker] = "picker" formControlName="dateofbirth" placeholder = "Choose a date">
+            <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
     </div>
+
+    <div class="form-group row" style="flex-direction: row;">
+        <div class="column">
+            <label for="gender">Gender :
+                <span class="asterisk_input">  </span>
+            </label>
+            <mat-radio-group class = "tp-radio-group" formControlName="gender">
+                <mat-radio-button class = "tp-radio-button"
+                  *ngFor = "let gender of genders" [value] = "gender">
+                  {{gender}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    
     <div class="form-group">
         <label ></label>
         <button type="submit" class="btn btn-success" [disabled]="!empForm.valid" >Create</button>
     </div>
     
   </form>
-  </div>
+</div>

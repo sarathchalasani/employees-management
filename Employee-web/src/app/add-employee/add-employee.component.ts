@@ -8,16 +8,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  user: Employee = new Employee("","","","");
+  user: Employee = new Employee("","","","","","");
+  genders: string[] = ['Male', 'Female', 'others'];
   public empForm: FormGroup;
   constructor(
     private httpClientService: HttpClientService,
     private formBuilder: FormBuilder
   ) {
     this.empForm = formBuilder.group({
-      name: ['', [Validators.required]],
-      designation: ['', [Validators.required]],
-      salary: ['', [Validators.required]]
+      fname: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
+      department: ['', [Validators.required]],
+      dateofbirth:['',[]],
+      gender:['',[Validators.required]]
     });
    }
 

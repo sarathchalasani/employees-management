@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientService, Employee } from '../service/httpclient.service';
 import { AddEmployeeComponent } from './add-employee.component';
 
 describe('AddEmployeeComponent', () => {

@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DateAdapter } from '@angular/material';
 
 export class Employee{
   constructor(
     public empId:string,
-    public name:string,
-    public designation:string,
-    public salary:string
+    public fname:string,
+    public lname:string,
+    public department:string,
+    public dateofbirth:string,
+    public gender:string
   ) {} 
-}
+}DateAdapter
 
 @Injectable({
   providedIn: 'root'
