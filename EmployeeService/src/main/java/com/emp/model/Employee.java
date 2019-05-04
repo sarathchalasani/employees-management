@@ -18,7 +18,7 @@ public class Employee {
 	private Date dateofbirth;
 	private String gender;
 
-	public Employee(Long empId, String fname,String lname, String designation, String department,Date date,String gender) {
+	public Employee(Long empId, String fname,String lname, String department,Date date,String gender) {
 		super();
 		this.empId = empId;
 		this.fname = fname;
