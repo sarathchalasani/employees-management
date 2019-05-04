@@ -44,7 +44,7 @@
               <span class="asterisk_input">  </span>
           </label>
           <mat-form-field>
-            <input matInput [matDatepicker] = "picker" formControlName="dateofbirth" placeholder = "Choose a date">
+            <input matInput [max]="endDate" [matDatepicker] = "picker" formControlName="dateofbirth" placeholder = "Choose a date">
             <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

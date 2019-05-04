@@ -10,6 +10,7 @@ export class AddEmployeeComponent implements OnInit {
 
   user: Employee = new Employee("","","","","","");
   genders: string[] = ['Male', 'Female', 'others'];
+  endDate:Date = new Date();
   public empForm: FormGroup;
   constructor(
     private httpClientService: HttpClientService,
